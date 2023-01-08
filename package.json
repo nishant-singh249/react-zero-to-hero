@@ -1,0 +1,33 @@
+{
+  "name": "react-zero-to-hero",
+  "version": "1.0.0",
+  "description": "This is the react zero to hero course",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nishant-singh249/react-zero-to-hero.git"
+  },
+  "author": "Nishant Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nishant-singh249/react-zero-to-hero/issues"
+  },
+  "homepage": "https://github.com/nishant-singh249/react-zero-to-hero#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "parcel": "^2.8.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 10 Chrome versions"
+  ]
+}
