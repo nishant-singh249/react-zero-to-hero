@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Logo from "../assets/img/food_villa.jpg"
+import { Link } from "react-router-dom";
 
 const Title = () => {
   return (
@@ -6,7 +8,7 @@ const Title = () => {
       <img
         className="logo"
         alt="logo"
-        src="https://www.coffeepressthailand.com/wp-content/uploads/2020/04/customer-foodvilla.png"
+        src={Logo}
       />
     </a>
   );
@@ -19,9 +21,9 @@ const Header = () => {
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
           <li>Cart</li>
         </ul>
       </div>
