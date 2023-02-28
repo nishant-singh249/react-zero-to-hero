@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-//import { restaurantList } from "../constant";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-
-function fitlterData(searchText, restaurants) {
-  return restaurants.filter((restaurant) =>
-    restaurant?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
-  );
-}
+import { fitlterData } from "../utils/Helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -16,7 +11,6 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    // API call here...
     getRestaurants();
   }, []);
 
@@ -30,7 +24,11 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
-  console.log("rendering...");
+  // const isOnline = useOnline()
+
+  // if(!isOnline) {
+  //   return <h1>🔴 Offline Please check your internet connection!!</h1>
+  // }
 
   //Conditional rendering...
   // if my restaurant is empty => render shimmer UI
@@ -40,7 +38,7 @@ const Body = () => {
   if (!allRestaurants) return null;
 
   //if(filteredRestaurants?.length === 0) return <h1>No Restaurant match your Filtered data...</h1>
-
+  
   return allRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
@@ -65,11 +63,12 @@ const Body = () => {
       <div className="restaurent-list">
         {filteredRestaurants.map((restaurant) => {
           return (
-            <Link to={"/restaurant/" + restaurant.data.id} key={restaurant.data.id}>
+            <Link
+              to={"/restaurant/" + restaurant.data.id}
+              key={restaurant.data.id}
+            >
               {" "}
-              <RestaurantCard
-                {...restaurant.data}    
-              />
+              <RestaurantCard {...restaurant.data} />
             </Link>
           );
         })}
@@ -77,5 +76,7 @@ const Body = () => {
     </>
   );
 };
+
+
 
 export default Body;
