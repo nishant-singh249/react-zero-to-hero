@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Logo from "../assets/img/food_villa.jpg"
+import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 
 const Title = () => {
   return (
@@ -6,7 +9,7 @@ const Title = () => {
       <img
         className="logo"
         alt="logo"
-        src="https://www.coffeepressthailand.com/wp-content/uploads/2020/04/customer-foodvilla.png"
+        src={Logo}
       />
     </a>
   );
@@ -14,17 +17,21 @@ const Title = () => {
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
+  const isOnline = useOnline()
+
   return (
     <div className="header">
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
           <li>Cart</li>
+          <li><Link to="/instamart">Instamart</Link></li>
         </ul>
       </div>
+      <h1>{isOnline ? "🟢" : "🔴"}</h1>
       {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Login</button>
       ) : (

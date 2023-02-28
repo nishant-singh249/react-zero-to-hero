@@ -29,8 +29,19 @@
   width: 100%;
 }
 
-.restaurent-card {
+.restaurent-list {
   flex-wrap: wrap;
+  display: flex;
+}
+
+.shimmer-card {
+  width: 200px;
+  height: 300px;
+  background-color: #d3d3d3;
+  margin: 20px;
+}
+
+.menu {
   display: flex;
 }
 
